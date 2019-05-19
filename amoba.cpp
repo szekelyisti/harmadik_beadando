@@ -38,7 +38,15 @@ void Amoba::handle(event ev)
     if (ev.type == ev_mouse && is_selected(ev.pos_x, ev.pos_y) && ev.button==btn_left && _free)
     {
         _checked = !_checked;
-        _fix_num = _play_num;
+        if(_play_num%2==0)
+        {
+            _fix_num = 2;
+        }
+        else
+        {
+            _fix_num = 1;
+        }
+
         _free = false;
     }
 }
@@ -56,6 +64,11 @@ bool Amoba::is_free()
 void Amoba::locker()
 {
     _free = false;
+}
+
+int Amoba::get_num()
+{
+    return _fix_num;
 }
 
 /*bool Amoba::is_selected(int mx, int my)

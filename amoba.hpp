@@ -19,6 +19,7 @@ class Amoba : public Checkbox
         int get_play();
         bool is_free();
         void locker();
+        int get_num();
 };
 
 #endif // AMOBA_HPP_INCLUDED

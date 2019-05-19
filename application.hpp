@@ -17,6 +17,7 @@ class Application
         void registerWidget(Widget *);
         void event_loop();
         virtual void action(std::string) = 0;
+        virtual vector<Widget *> getwidgets() = 0;
 
 };
 

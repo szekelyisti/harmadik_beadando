@@ -26,6 +26,7 @@ class Widget
         virtual int get_play();
         virtual bool is_free() = 0;
         virtual void locker() = 0;
+        virtual int get_num() = 0;
 };
 
 
