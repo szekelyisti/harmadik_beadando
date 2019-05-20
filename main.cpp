@@ -136,7 +136,9 @@ class MyApplication : public Application
                 }
             }
             box = new Box(this, 5, 5, 0, 50, "");
+            registerWidget(box);
             endgame = new Box(this, width/3, height/2, 0, 50, "");
+            registerWidget(endgame);
         }
 
         void action(string s)
