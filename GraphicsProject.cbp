@@ -46,17 +46,9 @@
 		<Unit filename="application.hpp" />
 		<Unit filename="box.cpp" />
 		<Unit filename="box.hpp" />
-		<Unit filename="button.cpp" />
-		<Unit filename="button.hpp" />
 		<Unit filename="check.cpp" />
 		<Unit filename="check.hpp" />
-		<Unit filename="dynamic.cpp" />
-		<Unit filename="dynamic.hpp" />
-		<Unit filename="listmenu.cpp" />
-		<Unit filename="listmenu.hpp" />
 		<Unit filename="main.cpp" />
-		<Unit filename="nummer.cpp" />
-		<Unit filename="nummer.hpp" />
 		<Unit filename="widget.cpp" />
 		<Unit filename="widget.hpp" />
 		<Extensions>

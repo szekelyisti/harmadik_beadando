@@ -6,6 +6,7 @@
 #include "check.hpp"
 #include "application.hpp"
 #include "amoba.hpp"
+#include "box.hpp"
 
 using namespace genv;
 using namespace std;
@@ -134,6 +135,8 @@ class MyApplication : public Application
                     registerWidget(am);
                 }
             }
+            box = new Box(this, 5, 5, 0, 50, "");
+            endgame = new Box(this, width/3, height/2, 0, 50, "");
         }
 
         void action(string s)
@@ -141,28 +144,25 @@ class MyApplication : public Application
             if(s == "one")
             {
                 game_over == true;
-                gout << move_to(0, 0) << color(0, 0, 0) << box(width-1, height-1);
-                //gout << gout.load_font("LiberationMono-Bold.ttf", 50);
-                gout << move_to(width/4, height/2-25) << color(255, 0, 0);
-                gout << text("A gyoztes az elso jatekos!") << refresh;
+                gout << color(0, 0, 0) << move_to (0, 0) << box_to(width-1, height-1);
+                endgame->setlabel("A gyoztes az elso jatekos!");
+                endgame->draw();
             }
 
             if(s == "two")
             {
                 game_over == true;
-                gout << move_to(0, 0) << color(0, 0, 0) << box(width-1, height-1);
-                //gout << gout.load_font("LiberationMono-Bold.ttf", 50);
-                gout << move_to(width/4, height/2-25) << color(255, 0, 0);
-                gout << text("A gyoztes a masodik jatekos!") << refresh;
+                gout << color(0, 0, 0) << move_to (0, 0) << box_to(width-1, height-1);
+                endgame->setlabel("A gyoztes a masodik jatekos!");
+                endgame->draw();
             }
 
             if(s == "tie")
             {
                 game_over == true;
-                gout << move_to(0, 0) << color(0, 0, 0) << box(width-1, height-1);
-                //gout << gout.load_font("LiberationMono-Bold.ttf", 50);
-                gout << move_to(width/4, height/2-25) << color(255, 0, 0);
-                gout << text("A jatek dontetlen!") << refresh;
+                gout << color(0, 0, 0) << move_to (0, 0) << box_to(width-1, height-1);
+                endgame->setlabel("A jatek dontetlen!");
+                endgame->draw();
             }
         }
 
@@ -246,10 +246,9 @@ class MyApplication : public Application
             }
         }
     }
-        gout << color(0, 0, 0) << move_to(0, 0) << box(width/2, height/17-1);
-        //gout << gout.load_font("LibarationMono-Bold.ttf", 16);
-        gout << color(255, 255, 255) << move_to(20, 20) << text("Jelenlegi jatekos:");
-        gout << text(to_string(player));
+        string s = "Jelenlegi jatekos: " + to_string(player);
+        box->setlabel(s);
+        box->draw();
         gm->winner();
         gm->tie();
         gout << refresh;
@@ -264,6 +263,8 @@ class MyApplication : public Application
     protected:
         GameMaster * gm = new GameMaster(this);
         bool game_over = false;
+        Box * box;
+        Box * endgame;
 
 };
 
